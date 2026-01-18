@@ -1,0 +1,259 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import NewsCard from '../components/NewsCard';
+
+const news = await getCollection('news');
+const latestNews = news
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+---
+
+<Layout title="ホーム">
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-bg-offwhite">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm mb-8 text-sm border border-gray-200">
+        <span class="w-2 h-2 rounded-full bg-gray-900"></span>
+        <span class="text-gray-600">成果まで伴走するソフトウェアチーム</span>
+      </div>
+
+      <!-- Main heading -->
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
+        <span class="block text-gray-900">難所を突破し、</span>
+        <span class="block text-gray-600">成果まで伴走する</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto mb-12 leading-relaxed">
+        速く作り、長く使える形に育てる。<br class="hidden md:inline" />
+        専門性で現場の前進を支え、成果に責任を持って伴走します。
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/contact" class="btn-primary text-lg px-8 py-4">
+          <span>お問い合わせ</span>
+        </a>
+        <a href="/about" class="btn-secondary text-lg px-8 py-4">
+          私たちについて
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Value Section -->
+  <section class="py-32 relative bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <span class="text-gray-500 text-sm font-medium tracking-wider uppercase">Our Value</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4 text-gray-900">私たちの強み</h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto">
+          「作って終わり」ではなく、改善が回り続ける現場を一緒につくります
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Value 1 -->
+        <div class="group p-8 rounded-2xl bg-white border border-gray-200 hover-card shadow-sm">
+          <div class="w-14 h-14 rounded-xl bg-gray-900 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">成果にコミット</h3>
+          <p class="text-gray-500 leading-relaxed">
+            作ることがゴールではありません。お客様のビジネス成果に責任を持ち、価値が出るまで伴走します。
+          </p>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="group p-8 rounded-2xl bg-white border border-gray-200 hover-card shadow-sm">
+          <div class="w-14 h-14 rounded-xl bg-gray-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">難所を引き受ける</h3>
+          <p class="text-gray-500 leading-relaxed">
+            民主化されない専門領域を尖らせ、技術的な難所を突破。複雑な問題を解決に導きます。
+          </p>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="group p-8 rounded-2xl bg-white border border-gray-200 hover-card shadow-sm">
+          <div class="w-14 h-14 rounded-xl bg-gray-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">最短で価値を出す</h3>
+          <p class="text-gray-500 leading-relaxed">
+            短いサイクルで検証し前に進める。早く作って早く学ぶことで、無駄なく価値を積み上げます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-32 relative bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <span class="text-gray-500 text-sm font-medium tracking-wider uppercase">Services</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4 text-gray-900">事業内容</h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto">
+          ソフトウェア開発全般を手がけ、特に業務効率化に強みがあります
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Service 1 -->
+        <div class="p-8 rounded-2xl bg-white border border-gray-200 shadow-sm">
+          <div class="flex items-start gap-6">
+            <div class="w-14 h-14 rounded-xl bg-gray-900 flex items-center justify-center flex-shrink-0">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">ソフトウェア開発</h3>
+              <p class="text-gray-500 leading-relaxed mb-4">
+                Webアプリケーション、モバイルアプリ、業務システムなど、幅広い開発に対応。運用・保守・移行まで見据えた長く凌げる設計を行います。
+              </p>
+              <ul class="text-gray-600 text-sm space-y-2">
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                  Webアプリケーション開発
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                  モバイルアプリ開発
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                  API設計・開発
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="p-8 rounded-2xl bg-white border border-gray-200 shadow-sm">
+          <div class="flex items-start gap-6">
+            <div class="w-14 h-14 rounded-xl bg-gray-700 flex items-center justify-center flex-shrink-0">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">業務効率化支援</h3>
+              <p class="text-gray-500 leading-relaxed mb-4">
+                現場の課題を丁寧にヒアリングし、最適なソリューションを提案。既存業務のデジタル化や自動化で生産性向上を実現します。
+              </p>
+              <ul class="text-gray-600 text-sm space-y-2">
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                  業務フロー分析・改善
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                  自動化ツール開発
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                  既存システム連携
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Section -->
+  <section class="py-32 relative bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <span class="text-gray-500 text-sm font-medium tracking-wider uppercase">Product</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4 text-gray-900">自社プロダクト</h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto">
+          研究者の航海を支援するサービスを開発中
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="p-8 md:p-12 rounded-2xl bg-gray-50 border border-gray-200">
+          <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="w-24 h-24 rounded-2xl bg-gray-900 flex items-center justify-center flex-shrink-0">
+              <span class="text-4xl font-bold text-white">ψ</span>
+            </div>
+            <div class="text-center md:text-left">
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">PsyNaut / サイノート</h3>
+              <p class="text-gray-600 mb-4">
+                心理学研究者のための研究支援プラットフォーム。<br />
+                研究者を"航海者"として捉え、研究活動を支援するツールを提供予定です。
+              </p>
+              <span class="inline-block px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">
+                Coming Soon
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Section -->
+  <section class="py-32 relative bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+        <div>
+          <span class="text-gray-500 text-sm font-medium tracking-wider uppercase">News</span>
+          <h2 class="text-4xl md:text-5xl font-bold mt-4 text-gray-900">お知らせ</h2>
+        </div>
+        <a href="/news" class="group flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors">
+          <span>すべて見る</span>
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+      {latestNews.length > 0 ? (
+        <div class="grid md:grid-cols-3 gap-6">
+          {latestNews.map((article) => (
+            <NewsCard
+              slug={article.id}
+              title={article.data.title}
+              date={article.data.date}
+              description={article.data.description}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="text-center text-gray-500">お知らせはまだありません。</p>
+      )}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-32 relative overflow-hidden bg-gray-900">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        一緒に課題を解決しませんか？
+      </h2>
+      <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+        難しい問題ほど、私たちの出番です。<br />
+        まずはお気軽にご相談ください。
+      </p>
+      <a href="/contact" class="inline-block bg-white text-gray-900 text-lg px-10 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+        お問い合わせ
+      </a>
+    </div>
+  </section>
+</Layout>
